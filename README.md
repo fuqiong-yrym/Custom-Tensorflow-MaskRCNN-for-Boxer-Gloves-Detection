@@ -6,14 +6,14 @@ In this repository, I used tensorflow object detection API to do a very interest
 
 The steps of the entire process are listed as follows:
 
-* Prepare images and annotations for training, evaluation and testing. The label tool selected is RectLabel for mac. RectLabel is simple and easy to use, also very handy since it has attracting features such as exporting compatible annotation formats, automatically generating label map, separating datasets and producing file list which are all required when using tensorflow detection API. In this example, training set contains ~150 images. 
+* **Labeling:** Prepare images and annotations for training, evaluation and testing. The label tool selected is RectLabel for mac. RectLabel is simple and easy to use, also very handy since it has attracting features such as exporting compatible annotation formats, automatically generating label map, separating datasets and producing file list which are all required when using tensorflow detection API. In this example, training set contains ~150 images. 
 
 (insert an image to show the mask)
 
-* Convert images and annotations into TFRecord format. The masks were included. Tensorflow API provides sample tools to do this conversion. According to the annotation format (PASCAL, Coco, KITTI) choose the corresponding tool. You may need make some changes if the format in your hand does not fall into the provided ones. 
+* **Inputs:** Convert images and annotations into TFRecord format. The masks were included. Tensorflow API provides sample tools to do this conversion. According to the annotation format (PASCAL, Coco, KITTI) choose the corresponding tool. You may need make some changes if the format in your hand does not fall into the provided ones. 
 (consider whether to post the conversion tool...)
 
-* Prepare config file for the model. I modified the config sample provided by Tensorflow API to change two basic things: 1. number of output, 2. paths to files used for training and evaluation. These two places are a must to change when you uses your own datasets, otherwise errors are expected. This config file also allows you to set the checkpoint file from which the training starts. I used faster rcnn reset101 trained on COCO. 
+* **Configuration:** Prepare config file for the model. I modified the config sample provided by Tensorflow API to change two basic things: 1. number of output, 2. paths to files used for training and evaluation. These two places are a must to change when you uses your own datasets, otherwise errors are expected. This config file also allows you to set the checkpoint file from which the training starts. I used faster rcnn reset101 trained on COCO. 
 
 <p align="center">
   <img src="readme.png" width=676 height=450>
