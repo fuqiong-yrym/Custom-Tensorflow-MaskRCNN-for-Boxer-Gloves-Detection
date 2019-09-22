@@ -17,23 +17,34 @@ The repository includes:
   <img src="test_images/23.jpeg" width=676 height=400>
 </p>
 
-<p float="left">
-  <img src="test_images/23_pixels0.png" width=200 height=150> 
-  <img src="test_images/23_pixels1.png" width=200 height=150>
-  <img src="test_images/23_pixels2.png" width=200 height=150>
-  <img src="test_images/23_pixels3.png" width=200 height=150>
+<p align="center">
+  <img src="test_images/23_pixels0.png" width=200 height=170> 
+  <img src="test_images/23_pixels1.png" width=200 height=170>
+  <img src="test_images/23_pixels2.png" width=200 height=170>
+  <img src="test_images/23_pixels3.png" width=200 height=170>
  </p>
 
 * **Inputs:** Convert images and annotations into TFRecord format. The masks were included. Tensorflow API provides sample tools to do this conversion. According to the annotation format (PASCAL, Coco, KITTI) choose the corresponding tool. You may need make some changes if the format in your hand does not fall into the provided ones. 
-(consider whether to post the conversion tool...)
 
 * **Configuration:** Prepare config file for the model. I modified the config sample provided by Tensorflow API to change two basic things: 1. number of output, 2. paths to files used for training and evaluation. These two places are a must to change when you uses your own datasets, otherwise errors are expected. This config file also allows you to set the checkpoint file from which the training starts. I used faster rcnn reset101 trained on COCO. 
+
+# Training on Google Cloud:
+
+Upload the prepared TFRecods, Label_map, refining checkpoint and config file to the bucket of google cloud. I chose Tensorflow version 1.12 on google cloud for training and evaluation. Mask rcnn model has higher detection accuracy but needs longer time to train, the training time is ~ 4 hours for this example. The training was stopped at ~ 145000 steps when the loss stablizes itself.
+
+# Frozen detection graph:
+
+After training, copy the latest checkpoint to local. Tensorflow obejct detection model only needs a frozen detection graph to do the inference. The API provides a module (object_detection/export_inference_graph.py) to extract the frozen detection graph from checkpoint.
+
+# Visualization of detection on image
+
+In the Jupyter Notebook
 
 <p align="center">
   <img src="readme.png" width=676 height=450>
 </p>
 
-
+# Visulization of detection on video
 
 <p align='center'>
   <img width="600" height="338" src="Boxing_fight_readme_downsize.gif">
