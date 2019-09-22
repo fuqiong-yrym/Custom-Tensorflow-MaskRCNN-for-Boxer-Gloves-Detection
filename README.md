@@ -13,10 +13,16 @@ The repository includes:
 
 * **Labeling:** Prepare images and annotations for training, evaluation and testing. The label tool selected is RectLabel for mac. RectLabel is simple and easy to use, also very handy since it has attracting features such as exporting compatible annotation formats, automatically generating label map, separating datasets and producing file list which are all required when using tensorflow detection API. In this example, training set contains ~150 images. 
 
-<p float="left">
-  <img src="/img1.png" width="100" />
-  <img src="/img2.png" width="100" /> 
+<p align="center">
+  <img src="/test_images/23.jpg" width=676 height=450 />
 </p>
+
+<p float="left">
+  <img src="/23_pixels0.png" width="100" /> 
+  <img src="/23_pixels1.png" width="100" />
+  <img src="/23_pixels2.png" width="100" />
+  <img src="/23_pixels3.png" width="100" />
+ </p>
 
 * **Inputs:** Convert images and annotations into TFRecord format. The masks were included. Tensorflow API provides sample tools to do this conversion. According to the annotation format (PASCAL, Coco, KITTI) choose the corresponding tool. You may need make some changes if the format in your hand does not fall into the provided ones. 
 (consider whether to post the conversion tool...)
