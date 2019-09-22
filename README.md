@@ -14,7 +14,7 @@ The repository includes:
 * **Labeling:** Prepare images and annotations for training, evaluation and testing. The label tool selected is RectLabel for mac. RectLabel is simple and easy to use, also very handy since it has attracting features such as exporting compatible annotation formats, automatically generating label map, separating datasets and producing file list which are all required when using tensorflow detection API. In this example, training set contains ~150 images. 
 
 <p align="center">
-  <img src="test_images/23.jpeg" width=676 height=350>
+  <img src="test_images/23.jpeg" width=676 height=400>
 </p>
 
 <p float="left">
@@ -33,7 +33,6 @@ The repository includes:
   <img src="readme.png" width=676 height=450>
 </p>
 
-![Boxing fight video clip](Boxing_fight_readme_downsize.gif)
 
 
 <p align='center'>
