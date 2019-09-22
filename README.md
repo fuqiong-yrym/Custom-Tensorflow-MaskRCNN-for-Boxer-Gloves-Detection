@@ -40,6 +40,17 @@ After training, copy the latest checkpoint to local. Tensorflow obejct detection
 
 In the Jupyter Notebook
 
+## Installation
+1. Clone this repository
+2. Install dependencies
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+3. Run setup from the repository root directory
+    ```bash
+    python3 setup.py install
+    ``` 
+
 <p align="center">
   <img src="readme.png" width=676 height=450>
 </p>
