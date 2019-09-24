@@ -6,8 +6,8 @@ In this repository, I used tensorflow object detection API to do a very interest
 
 The repository includes:
 
-* Jupyter notebooks to visualize the detection on images
-* Jupyter notebooks to visualize the detection on video
+* Jupyter notebooks to visualize the detection on images [Gloves_detection_in_image.ipynb](https://github.com/fuqiong-yrym/Tensorflow-Object-Detection-API-to-Detect-Boxing-Gloves-/blob/master/Gloves_detection_in_image.ipynb)
+* Jupyter notebooks to visualize the detection on video [Gloves_detection_in_video.ipynb](https://github.com/fuqiong-yrym/Tensorflow-Object-Detection-API-to-Detect-Boxing-Gloves-/blob/master/Gloves_detection_in_video.ipynb)
 
 # Inputs Preparation:
 
@@ -38,23 +38,25 @@ After training, copy the latest checkpoint to local. Tensorflow obejct detection
 
 # Visualization of detection on image
 
-The Jupyter notebook [Gloves_detection_in_image.ipynb]() is a demo showing how to use tensorflow object detection API to detect and segment boxer gloves in the image. The skeleton of this notebook is provided by detection API. The path of the frozen graph trained based on your own datasets should be filled. 
+The Jupyter notebook [Gloves_detection_in_image.ipynb](https://github.com/fuqiong-yrym/Tensorflow-Object-Detection-API-to-Detect-Boxing-Gloves-/blob/master/Gloves_detection_in_image.ipynb) is a demo showing how to use tensorflow object detection API to detect and segment boxer gloves in the image. The skeleton of this notebook is provided by detection API. The path of the frozen graph trained based on your own datasets should be filled. 
 
+The folowing image shows the detection and segmentation of the boxer gloves presented in the image.
 <p align="center">
   <img src="readme.png" width=676 height=450>
 </p>
 
 # Visulization of detection on video
 
-The Jupyter notebook [Gloves_detection_in_video.ipynb]() is a demo showing how to use tensorflow object detection API to detect and segment boxer gloves in the video. Similarly, the path of the frozen graph trained based on your own datasets should be filled in. Model inference on mask rcnn takes ~30 sec per image, which makes it hard to use in a real time context. In this notebook, the python library moviepy is used to process every frame image in the video. Then these frames are concatenate to show the video with detected and segmented gloves. You may need to install moviepy first if necessary. 
-
+The Jupyter notebook [Gloves_detection_in_video.ipynb](https://github.com/fuqiong-yrym/Tensorflow-Object-Detection-API-to-Detect-Boxing-Gloves-/blob/master/Gloves_detection_in_video.ipynb) is a demo showing how to use tensorflow object detection API to detect and segment boxer gloves in the video. Similarly, the path of the frozen graph trained based on your own datasets should be filled in. Model inference on mask rcnn takes ~30 sec per image, which makes it hard to use in a real time context. In this notebook, the python library moviepy is used to process every frame image in the video. Then these frames are concatenate to show the video with detected and segmented gloves. You may need to install moviepy first if necessary. 
 
 ## Install moviepy
 
    ```bash
    pip install moviepy
    ```
- 
+
+The following .gif animated the boxer gloves detection and segmentation. This video is in slow motion therefore we can see at some frames the model commits false positive and false negative errors. Increasing the size of training sample and utilizing the dataset augmentation are expected to improve the evaluation metrics.
+
 <p align='center'>
   <img width="600" height="338" src="Boxing_fight_readme_downsize.gif">
 </p>
