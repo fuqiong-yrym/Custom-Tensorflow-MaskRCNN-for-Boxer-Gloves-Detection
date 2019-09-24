@@ -30,7 +30,7 @@ The repository includes:
 
 # Training on Google Cloud:
 
-Upload the prepared TFRecods, Label_map, refining checkpoint and config file to the bucket of google cloud. I chose Tensorflow version 1.12 on google cloud for training and evaluation. Mask rcnn model has higher detection accuracy but needs longer time to train, the training time is ~ 4 hours for this example. The training was stopped at ~ 145000 steps when the loss stablizes itself.
+A set of files need to be uploaded to the bucket of google cloud before you start to train, such as the prepared TFRecods, label_map, refining checkpoint and config file, etc. I chose Tensorflow version 1.12 on google cloud for training and evaluation. Mask rcnn model has higher detection accuracy but needs longer time to train, the training time is ~ 4 hours on GPU for this example. The training was stopped at ~ 145000 steps when the loss stablizes itself.
 
 # Frozen detection graph:
 
@@ -38,18 +38,7 @@ After training, copy the latest checkpoint to local. Tensorflow obejct detection
 
 # Visualization of detection on image
 
-In the Jupyter Notebook
-
-## Installation
-1. Clone this repository
-2. Install dependencies
-   ```bash
-   pip3 install -r requirements.txt
-   ```
-3. Run setup from the repository root directory
-    ```bash
-    python3 setup.py install
-    ``` 
+The Jupyter notebook [Gloves_detection_in_image.ipynb]() is a demo showing how to use tensorflow object detection API to detect and segment boxer gloves in the image. The skeleton of this notebook is provided by detection API. The path of the frozen graph trained based on your own datasets should be filled. 
 
 <p align="center">
   <img src="readme.png" width=676 height=450>
@@ -57,6 +46,15 @@ In the Jupyter Notebook
 
 # Visulization of detection on video
 
+The Jupyter notebook [Gloves_detection_in_video.ipynb]() is a demo showing how to use tensorflow object detection API to detect and segment boxer gloves in the video. Similarly, the path of the frozen graph trained based on your own datasets should be filled in. Model inference on mask rcnn takes ~30 sec per image, which makes it hard to use in a real time context. In this notebook, the python library moviepy is used to process every frame image in the video. Then these frames are concatenate to show the video with detected and segmented gloves. You may need to install moviepy first if necessary. 
+
+
+## Install moviepy
+
+   ```bash
+   pip install moviepy
+   ```
+ 
 <p align='center'>
   <img width="600" height="338" src="Boxing_fight_readme_downsize.gif">
 </p>
